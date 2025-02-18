@@ -1,3 +1,40 @@
+/* styles/globals.css */
+
+/* Import the font at the top */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+
+/* Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global styles */
+body {
+  background-color: white;
+  color: black;
+  font-family: 'Caveat', sans-serif;
+  transition-duration: 300ms;
+}
+
+/* Dark mode styles */
+body.dark {
+  background-color: #1a202c;
+  color: white;
+}
+
+/* Transition for smooth theme switching */
+.transition-colors {
+  transition: all 0.3s ease;
+}
+
+/* Example of dark mode for specific sections */
+header {
+  background-color: white;
+}
+
+header.dark {
+  background-color: #2d3748;
+}
+.text-shadow {
+  text-shadow: 2px 2px #000;
+}

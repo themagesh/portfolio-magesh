@@ -13,11 +13,11 @@ import Footer from '@/components/Footer';
 export default function Home() {
   return (
     <div className="bg-gray-900 text-white">
-      <Header title="TamilSelvan | Portfolio" description="A showcase of my work and skills." />
+      <Header title="MageshKumar| Portfolio" description="A showcase of my work and skills." />
       <Hero />
+      <About />
       <Navbar/>
       <SkillsSection/>
-      <About />
       <Projects />
       <Resume/>
       <BlogSection/>
@@ -25,5 +25,6 @@ export default function Home() {
       <Contact />
       <Footer/>
     </div>
+    
   );
 }

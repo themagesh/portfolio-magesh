@@ -1,7 +1,17 @@
+/** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
+  darkMode: 'class', // Ensure dark mode is enabled
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        caveat: ['Caveat', 'sans-serif'], // Add the custom font family
+      },
+    },
   },
-  plugins: [],
-}
+  plugins: [require('@tailwindcss/typography')], // Add typography plugin
+};

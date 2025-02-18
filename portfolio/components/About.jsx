@@ -4,9 +4,10 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules"; // Add Autoplay module
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/autoplay"; // Import the autoplay CSS
 
 const services = [
   {
@@ -59,10 +60,11 @@ export default function ServicesSection() {
       {/* Services Carousel */}
       <div className="container mx-auto mt-12 px-4">
         <Swiper
-          modules={[Pagination]}
+          modules={[Pagination, Autoplay]} // Include the Autoplay module
           spaceBetween={30}
           slidesPerView={1}
           pagination={{ clickable: true }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }} // Autoplay settings: 3 seconds per slide
           breakpoints={{
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
