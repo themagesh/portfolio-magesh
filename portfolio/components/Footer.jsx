@@ -21,14 +21,14 @@ export default function Footer() {
           {/* Copyright Text */}
           <div className="text-center md:text-left">
             <p>
-              &copy; {currentYear} <strong>TamilSelvan</strong>. All rights reserved.
+              &copy; {currentYear} <strong>MageshKumar</strong>. All rights reserved.
             </p>
           </div>
 
           {/* Developer Credit */}
           <div className="text-center md:text-right">
             <p>
-              Developed by <strong>TamilSelvan</strong>
+              Developed by <strong>MageshKumar</strong>
             </p>
           </div>
         </div>

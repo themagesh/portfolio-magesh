@@ -4,24 +4,26 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const skills = [
-  { category: "Cloud Services", items: ["AWS", "Digital Ocean"] },
-  { category: "DB", items: ["MySQL", "MariaDB"] },
-  { category: "Monitoring Tools", items: ["Zabbix", "Prometheus", "Grafana"] },
-  { category: "OS Platforms", items: ["Windows Server", "Linux (Debian & RedHat Based)"] },
-  { category: "CI/CD", items: ["Jenkins", "GitLab", "ArgoCD", "Ansible"] },
-  { category: "Log Management", items: ["Elasticsearch", "Fluentbit", "Kibana"] },
-  { category: "Web Servers", items: ["Apache", "NGINX", "Litespeed"] },
-  { category: "Scripting", items: ["Shell/Bash", "Python"] },
-  { category: "Container Orchestration", items: ["Docker", "Kubernetes"] },
+  { category: "Programming Languages", items: ["Python", "JavaScript"] },
+  { category: "Web Development", items: ["HTML", "CSS"] },
+  { category: "Databases", items: ["PostgreSQL", "MongoDB"] },
+  { category: "Cloud Services", items: ["AWS", "Azure"] },
+  { category: "CI/CD", items: ["Docker", "Kubernetes", "GitLab"] },
+  { category: "Scripting & Automation", items: ["Shell/Bash", "Python"] },
+  { category: "Operating Systems", items: ["Linux (Debian & RedHat Based)", "Windows Server"] },
+  { category: "Python Libraries", items: ["FastAPI", "Django", "Requests"] },
+  { category: "CSS Frameworks", items: ["Tailwind CSS"] },
 ];
 
 export default function SkillsSection() {
   return (
     <section className="bg-gray-900 text-white py-16" id="skills-section">
       {/* Heading */}
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-yellow-400">Professional Skills</h2>
-        <p className="text-xl text-gray-300">My <b>Talent</b></p>
+      <div className="text-center">
+        <h2 className="text-4xl font-bold text-white">Professional Skills</h2>
+        <p className="text-xl text-white">
+          <span className="text-[#ff64ab] font-bold">MY Talent</span>
+        </p>
       </div>
 
       {/* Skills Grid */}
@@ -29,12 +31,15 @@ export default function SkillsSection() {
         {skills.map((skill, index) => (
           <motion.div
             key={index}
-            className="bg-gray-800 p-6 rounded-lg shadow-lg"
+            className={`relative border border-gray-700 pb-2 bg-gray-800 p-4 rounded-lg transition-all duration-300 
+              hover:border-blue-400 hover:shadow-lg ${
+                index % 2 === 0 ? "shadow-lg shadow-blue-500/60" : "shadow-lg shadow-pink-500/60"
+              }`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
           >
-            <h6 className="text-xl font-semibold text-yellow-400 mb-3">{skill.category}</h6>
+            <h6 className="text-xl font-semibold text-[#ff64ab] mb-3">{skill.category}</h6>
             <ul className="text-gray-300">
               {skill.items.map((item, idx) => (
                 <li key={idx} className="mb-1">{item}</li>
@@ -44,5 +49,5 @@ export default function SkillsSection() {
         ))}
       </div>
     </section>
-  );
+  );  
 }

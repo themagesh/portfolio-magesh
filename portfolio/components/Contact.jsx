@@ -18,7 +18,7 @@ export default function ContactSection() {
 
     const payload = {
       ...formData,
-      adminEmail: "tamilsanmia@gmail.com", // Sending message to Admin
+      adminEmail: "themagesh.vgmail.com", // Sending message to Admin
     };
 
     const res = await fetch("https://formspree.io/f/myzgzolg", {
@@ -37,14 +37,15 @@ export default function ContactSection() {
     <section id="contact-section" className="py-20 bg-gradient-to-b from-gray-900 to-black text-white">
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold mb-2">Contact Me</h2>
-        <p className="text-lg mb-10">Let’s <b>Talk About Ideas</b></p>
+        <p className="text-[#ff64ab] font-bold">Let’s<span className="font-[Caveat] font-bold text-[#ffffff] text-2xl"> Talk About Ideas</span></p>
+        
 
         <div className="grid md:grid-cols-2 gap-10">
           <div className="text-left">
             <p className="mb-4"><b>Address:</b> Dharmapuri, Tamil Nadu, India</p>
             <p className="mb-4"><b>Freelance:</b> Available Right Now</p>
-            <p className="mb-4"><b>Email:</b> tamilsanmia@gmail.com</p>
-            <p className="mb-4"><b>Phone:</b> +91 9585 - 998 - 228</p>
+            <p className="mb-4"><b>Email:</b> themagesh.v@gmail.com</p>
+            <p className="mb-4"><b>Phone:</b> +91 6381 - 114 - 501</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4 text-left">
