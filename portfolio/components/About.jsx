@@ -1,70 +1,85 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules"; // Add Autoplay module
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/autoplay"; // Import the autoplay CSS
+import "swiper/css/autoplay";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const services = [
   {
-    title: "Web Designing",
+    title: "Python Development",
     description:
-      "Exquisitely crafted website designing services from concept to creation tailored to elevate your brand’s online presence.",
-    image: "/assets/images/pat-2.png",
+      "Expert in building scalable and efficient Python applications tailored to your business needs."
+  },
+  {
+    title: "Web Development",
+    description:
+      "Crafting high-performance, SEO-optimized websites with modern web technologies."
   },
   {
     title: "WordPress Development",
     description:
-      "Innovative WordPress solutions by experienced developers that empower your business visibility online.",
-    image: "/assets/images/pat-2.png",
+      "Professional WordPress solutions, from custom themes to full-scale website development."
+  },
+  {
+    title: "API Development & Integration",
+    description:
+      "Building and integrating RESTful and PostgreSQL APIs to power seamless applications."
+  },
+  {
+    title: "Django Development",
+    description:
+      "Developing robust and scalable web applications using Django and Django REST Framework."
+  },
+  {
+    title: "FastAPI Development",
+    description:
+      "Creating high-performance APIs with FastAPI for modern web and mobile applications."
   },
   {
     title: "Ecommerce Development",
     description:
-      "Build a high-converting and stunning online store that drives sales with our professional ecommerce development services.",
-    image: "/assets/images/pat-2.png",
+      "Building feature-rich online stores that drive conversions and enhance user experience."
   },
   {
-    title: "B2B/SaaS Marketing",
+    title: "Cloud Solutions",
     description:
-      "Empowering your SAAS business with state-of-the-art B2B/SaaS marketing strategies for exponential business growth.",
-    image: "/assets/images/pat-2.png",
+      "Offering cloud-based solutions with AWSscalable applications."
   },
   {
-    title: "Cloud Computing",
+    title: "Redis Development",
     description:
-      "Provides the best cloud-neutral solution for hybrid and multi-cloud strategies.",
-    image: "/assets/images/pat-2.png",
+      "Optimizing caching and real-time data processing using Redis for high-performance applications."
   },
   {
-    title: "DevOps",
+    title: "Data Analytics & Visualization",
     description:
-      "DevOps as a Service system helps businesses to ensure that the organization achieves desired outcomes.",
-    image: "/assets/images/pat-2.png",
-  },
+      "Transforming raw data into actionable insights with Python and visualization tools."
+  }
 ];
 
 export default function ServicesSection() {
   return (
     <section className="relative bg-gray-900 text-white py-16" id="services-section">
-      {/* Heading */}
       <div className="text-center">
-        <h2 className="text-4xl font-bold text-yellow-400">What I Do</h2>
-        <p className="text-xl text-gray-300">My <b>Services</b></p>
+        <h2 className="text-4xl font-bold text-white">What I Do</h2>
+        <p className="text-xl text-white">
+          <span className="text-[#ff64ab] font-bold">My</span> 
+          <span className="font-[Caveat] font-bold text-[#ffffff] text-2xl"> Services</span>
+        </p>
       </div>
 
-      {/* Services Carousel */}
+
       <div className="container mx-auto mt-12 px-4">
         <Swiper
-          modules={[Pagination, Autoplay]} // Include the Autoplay module
+          modules={[Pagination, Autoplay]}
           spaceBetween={30}
           slidesPerView={1}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: false }} // Autoplay settings: 3 seconds per slide
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
           breakpoints={{
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
@@ -74,13 +89,10 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <SwiperSlide key={index}>
               <div className="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-                <div className="relative w-full h-40 bg-cover bg-center rounded-lg mb-4" style={{ backgroundImage: `url(${service.image})` }}></div>
-                <h5 className="text-xl font-semibold text-yellow-400">{service.title}</h5>
-                <p className="text-gray-300 mt-2">{service.description}</p>
-                <Link href="#pricing-section">
-                  <span className="inline-block mt-4 text-yellow-400 font-semibold hover:underline cursor-pointer">
-                    See Pricing
-                  </span>
+                <h5 className="text-xl font-semibold text-white">{service.title}</h5>
+                <p className="text-white mt-2">{service.description}</p>
+                <Link href="#pricing-section" className="flex items-center justify-center mt-4 text-[#ff64ab] font-semibold hover:underline cursor-pointer">
+                  See Pricing <ArrowRight className="ml-2" size={20} />
                 </Link>
               </div>
             </SwiperSlide>

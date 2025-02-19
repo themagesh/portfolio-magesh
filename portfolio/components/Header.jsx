@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import Menu from './Navbar';  // Adjust the path if necessary
+// import Menu from './Navbar';  // Adjust the path if necessary
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false); // State for opening/closing the menu
@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <div>
       {/* Button to toggle the menu */}
-      <button onClick={() => setMenuOpen(true)}>Open Menu</button>
+      <button onClick={() => setMenuOpen(true)}></button>
 
       {/* Pass setMenuOpen as a prop to the Menu component */}
       {menuOpen && <Menu setMenuOpen={setMenuOpen} />}
