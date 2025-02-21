@@ -9,12 +9,16 @@
 @tailwind utilities;
 
 /* Global styles */
+/* styles/globals.css */
 body {
-  background-color: white;
-  color: black;
-  font-family: 'Caveat', sans-serif;
-  transition-duration: 300ms;
+  background-color: #121212; /* Dark Mode */
+  color: white; /* Optional: Set text color */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
 }
+
 
 /* Dark mode styles */
 body.dark {
@@ -37,4 +41,59 @@ header.dark {
 }
 .text-shadow {
   text-shadow: 2px 2px #000;
+}
+/* Dark mode transition */
+html {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+body {
+  @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white;
+}
+@keyframes upDown {
+  0%, 100% { transform: translateY(-20px); }
+  50% { transform: translateY(20px); }
+}
+
+/* Keyframes for 360 Rotation */
+@keyframes rotate360 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Combine both animations */
+.animate-rotate-move {
+  animation: upDown 1s infinite ease-in-out, rotate360 1.5s infinite linear;
+}
+@keyframes upDown {
+  0%, 100% { transform: translateY(-30px); }
+  50% { transform: translateY(30px); }
+}
+
+/* Keyframes for 360 Rotation */
+@keyframes rotate360 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Combine animations */
+.animate-rotate-move {
+  animation: upDown 1.5s infinite ease-in-out, rotate360 2s infinite linear;
+}
+
+.animate-fade-in {
+  animation: fadeIn 2s ease-in;
+}
+.hover-zoom {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover-zoom:hover {
+  transform: scale(1.1);
 }

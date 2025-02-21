@@ -10,6 +10,7 @@ import Resume from '@/components/Resume';
 import BlogSection from '@/components/Blog';
 import Footer from '@/components/Footer';
 
+
 export default function Home() {
   return (
     <div className="bg-gray-900 text-white">

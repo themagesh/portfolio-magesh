@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Mail, Phone, MapPin, User } from "lucide-react"; // Importing icons
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -8,6 +9,21 @@ export default function ContactSection() {
     message: "",
   });
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const contactDetails = [
+    { icon: MapPin, label: "Address", value: "Dharmapuri, Tamil Nadu, India" },
+    { icon: User, label: "Freelance", value: "Available Right Now" },
+    { icon: Mail, label: "Email", value: "themagesh.v@gmail.com" },
+    { icon: Phone, label: "Phone", value: "+91 6381 - 114 - 501" },
+  ];
+
+  useEffect(() => {
+    if (success) {
+      const timer = setTimeout(() => setSuccess(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [success]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,10 +31,11 @@ export default function ContactSection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const payload = {
       ...formData,
-      adminEmail: "themagesh.vgmail.com", // Sending message to Admin
+      adminEmail: "themagesh.v@gmail.com",
     };
 
     const res = await fetch("https://formspree.io/f/myzgzolg", {
@@ -31,33 +48,61 @@ export default function ContactSection() {
       setSuccess(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
     }
+
+    setLoading(false);
   };
 
   return (
     <section id="contact-section" className="py-20 bg-gradient-to-b from-gray-900 to-black text-white">
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold mb-2">Contact Me</h2>
-        <p className="text-[#ff64ab] font-bold">Let’s<span className="font-[Caveat] font-bold text-[#ffffff] text-2xl"> Talk About Ideas</span></p>
-        
+        <p className="text-[#ff64ab] font-bold">
+          Let’s<span className="font-[Caveat] font-bold text-[#ffffff] text-2xl"> Talk About Ideas</span>
+        </p>
 
-        <div className="grid md:grid-cols-2 gap-10">
-          <div className="text-left">
-            <p className="mb-4"><b>Address:</b> Dharmapuri, Tamil Nadu, India</p>
-            <p className="mb-4"><b>Freelance:</b> Available Right Now</p>
-            <p className="mb-4"><b>Email:</b> themagesh.v@gmail.com</p>
-            <p className="mb-4"><b>Phone:</b> +91 6381 - 114 - 501</p>
+        <div className="grid md:grid-cols-2 gap-10 mt-8">
+          {/* Left Side - Contact Info */}
+          <div className="text-left space-y-6">
+            {contactDetails.map(({ icon: Icon, label, value }, index) => (
+              <div key={index}>
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-[#ff64ab] rounded-full">
+                    <Icon className="text-white" size={20} />
+                  </div>
+                  <p><b>{label}:</b> {value}</p>
+                </div>
+                {index !== contactDetails.length - 1 && <hr className="border-gray-700" />}
+              </div>
+            ))}
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4 text-left">
-            <input type="text" name="name" placeholder="Your Full Name *" required className="w-full p-3 bg-gray-800 rounded" value={formData.name} onChange={handleChange} />
-            <input type="email" name="email" placeholder="Your Email Address *" required className="w-full p-3 bg-gray-800 rounded" value={formData.email} onChange={handleChange} />
-            <input type="text" name="subject" placeholder="Your Subject *" required className="w-full p-3 bg-gray-800 rounded" value={formData.subject} onChange={handleChange} />
-            <textarea name="message" placeholder="Your Message *" required className="w-full p-3 bg-gray-800 rounded h-32" value={formData.message} onChange={handleChange}></textarea>
-            <button type="submit" className="w-full bg-blue-500 py-3 rounded font-bold">Send Message</button>
+          {/* Right Side - Contact Form */}
+          <form onSubmit={handleSubmit} className="space-y-4 text-left bg-gray-800 p-6 rounded-2xl shadow-lg">
+            <input type="text" name="name" placeholder="Your Full Name *" required
+              className="w-full p-3 bg-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#ff64ab]"
+              value={formData.name} onChange={handleChange} />
+
+            <input type="email" name="email" placeholder="Your Email Address *" required
+              className="w-full p-3 bg-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#ff64ab]"
+              value={formData.email} onChange={handleChange} />
+
+            <input type="text" name="subject" placeholder="Your Subject *" required
+              className="w-full p-3 bg-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#ff64ab]"
+              value={formData.subject} onChange={handleChange} />
+
+            <textarea name="message" placeholder="Your Message *" required
+              className="w-full p-3 bg-gray-700 rounded-xl text-white h-32 focus:outline-none focus:ring-2 focus:ring-[#ff64ab]"
+              value={formData.message} onChange={handleChange}></textarea>
+
+            <button type="submit"
+              className="w-full bg-[#ff64ab] py-3 rounded-xl font-bold transition hover:bg-[#ff458c] disabled:opacity-50"
+              disabled={loading}>
+              {loading ? "Sending..." : "Send Message"}
+            </button>
           </form>
         </div>
 
-        {success && <p className="text-green-400 mt-4">Thanks, your message is sent successfully. Admin will also receive a copy.</p>}
+        {success && <p className="text-green-400 mt-4">Thanks, your message is sent successfully!</p>}
       </div>
     </section>
   );
