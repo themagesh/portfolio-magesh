@@ -8,7 +8,7 @@ import { jost, caveat } from './Fonts';
 export default function HeroSection() {
   return (
     <section
-      className="relative bg-gradient-to-b from-gray-900 to-gray-800 text-white py-16 px-6 overflow-hidden"
+      className="relative  text-white py-16 px-6 overflow-hidden"
       id="started-section"
     >
       {/* Background Patterns */}
@@ -28,7 +28,7 @@ export default function HeroSection() {
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between relative">
         <div className="text-center md:text-left max-w-xl">
         <p className={`text-lg ${jost.className} text-[#ff64ab]`}>
-           <span className="text-[#ffffff] font-bold ">HI!</span>
+            <span className="text-[#ffffff] font-bold "> HI!</span>
             <span className="font-bold">, <b>I'M</b></span>
         </p>
 

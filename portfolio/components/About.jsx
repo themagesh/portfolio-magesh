@@ -23,7 +23,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="relative bg-gray-900 text-white py-16" id="services-section">
+    <section className="relative  text-white py-16" id="services-section">
       <div className="text-center">
         <h2 className="text-4xl font-bold text-white">What I Do</h2>
         <p className="text-xl text-white">

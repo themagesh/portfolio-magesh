@@ -4,7 +4,6 @@ import { ThemeProvider } from 'next-themes';
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import LoadingScreen from "@/components/LoadingScreen";
-import CustomCursor from "@/components/CustomCursor"; // Import cursor
 
 export default function App({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);
@@ -13,7 +12,6 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     setMounted(true);
-
     setTimeout(() => setLoading(false), 1500);
 
     const handleStart = () => setLoading(true);
@@ -34,7 +32,6 @@ export default function App({ Component, pageProps }) {
 
   return (
     <ThemeProvider attribute="class">
-      <CustomCursor /> {/* Add custom cursor */}
       {loading ? (
         <LoadingScreen />
       ) : (

@@ -52,7 +52,7 @@ const Resume = () => {
   ];
 
   return (
-    <section id="resume-section" className="py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-800 text-white">
+    <section id="resume-section" className="py-20  to-gray-800 text-white">
       <div className="container mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-12">

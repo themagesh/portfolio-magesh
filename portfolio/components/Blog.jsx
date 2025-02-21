@@ -18,8 +18,9 @@ const BlogSection = () => {
         {/* Heading */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold">Latest Blog</h2>
-          <p className="text-lg text-gray-400">My <b>Articles and Advice</b></p>
+          <p className="text-lg text-[#ff64ab] font-bold">MY <span className="font-[Caveat] font-bold text-[#ffffff] text-2xl"> Articles and Advice</span></p>
         </div>
+        
 
         {/* Blog Posts */}
         <div className="grid md:grid-cols-2 gap-8">

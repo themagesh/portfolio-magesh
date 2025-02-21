@@ -62,7 +62,7 @@ export default function Navbar() {
 
       {/* Sidebar Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-gray-900 text-white transform transition-transform duration-300 ease-in-out z-50 ${
+        className={`fixed top-0 right-0 h-full w-64 bg text-white transform transition-transform duration-300 ease-in-out z-50 ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -72,11 +72,12 @@ export default function Navbar() {
             { href: '/', label: 'Home' },
             { href: '/#services-section', label: 'Services' },
             { href: '/#skills-section', label: 'Skills' },
+            { href: '/#projects', label: 'Projects' },
             { href: '/#resume-section', label: 'Resume' },
             { href: '/#works-section', label: 'Works' },
+            { href: '/#blog-section', label: 'Blog' },
             { href: '/#contact-section', label: 'Contact' },
-            { href: '/works/', label: 'Projects' },
-            { href: '/blog/', label: 'Blog' },
+            
           ].map(({ href, label }) => (
             <Link
               key={href}
