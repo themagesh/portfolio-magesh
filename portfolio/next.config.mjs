@@ -1,9 +1,3 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+export default {
   reactStrictMode: true,
-  images: {
-    domains: ['themagesh.in'],
-  },
 };
-
-module.exports = nextConfig;
