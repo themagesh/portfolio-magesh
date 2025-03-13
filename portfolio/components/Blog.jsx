@@ -1,5 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Jost } from "next/font/google";
+
+const jost = Jost({ subsets: ["latin"], weight: ["400", "700"] });
 
 const BlogSection = () => {
   const blogPosts = [
@@ -13,14 +16,13 @@ const BlogSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-900 to-gray-800 text-white" id="blog-section">
+    <section className={`py-16 bg-gradient-to-b from-gray-900 to-gray-800 text-white ${jost.className}`} id="blog-section">
       <div className="container mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold">Latest Blog</h2>
           <p className="text-lg text-[#ff64ab] font-bold">MY <span className="font-[Caveat] font-bold text-[#ffffff] text-2xl"> Articles and Advice</span></p>
         </div>
-        
 
         {/* Blog Posts */}
         <div className="grid md:grid-cols-2 gap-8">

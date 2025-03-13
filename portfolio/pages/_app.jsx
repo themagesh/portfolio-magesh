@@ -1,9 +1,13 @@
-import 'tailwindcss/tailwind.css';
-import '@/styles/globals.css';
-import { ThemeProvider } from 'next-themes';
+import "@/styles/globals.css";
+import "tailwindcss/tailwind.css";
+import { ThemeProvider } from "next-themes";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import LoadingScreen from "@/components/LoadingScreen";
+import { Jost } from "next/font/google";
+
+// Load Jost font
+const jost = Jost({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
 export default function App({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);
@@ -35,7 +39,7 @@ export default function App({ Component, pageProps }) {
       {loading ? (
         <LoadingScreen />
       ) : (
-        <main className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen">
+        <main className={`${jost.className} bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen`}>
           <Component {...pageProps} />
         </main>
       )}

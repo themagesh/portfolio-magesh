@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class', // Ensure dark mode is enabled
+  darkMode: "class", // Ensure dark mode is enabled
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -9,9 +9,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        caveat: ['Caveat', 'sans-serif'], // Add the custom font family
+        caveat: ["Caveat", "sans-serif"],
+        jost: ["Jost", "sans-serif"], // Ensure Jost is correctly defined
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')], // Add typography plugin
+  plugins: [require("@tailwindcss/typography")], // Add typography plugin
 };

@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Mail, Phone, MapPin, User } from "lucide-react";
-import { Jost,Caveat,Roboto } from "next/font/google";
+import { Jost } from "next/font/google";
+
+const jost = Jost({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -79,10 +81,10 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact-section" className="py-20 text-white">
+    <section id="contact-section" className={`py-20 text-white ${jost.className}`}>
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold mb-2">Contact Me</h2>
-        <p className="fon-[joost] ttext-[#ff64ab] font-bold">
+        <p className="text-[#ff64ab] font-bold">
           Let’s<span className="font-[Caveat] font-bold text-[#ffffff] text-2xl"> Talk About Ideas</span>
         </p>
 

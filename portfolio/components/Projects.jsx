@@ -1,6 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Jost } from "next/font/google";
+
+const jost = Jost({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -10,8 +13,8 @@ export default function Projects() {
     setTimeout(() => {
       setProjects([
         {
-          title: "PocketSense",
-          description: "A platform that helps college students track and split daily expenses with friends.",
+          title: "ChartAP.com",
+          description: "Chartap.com is a platform for real-time cryptocurrency analytics, providing trading insights, market trends, and data visualization for informed decision-making",
           link: "https://www.chartap.com/",
           preview: "https://www.chartap.com/",
         },
@@ -22,8 +25,8 @@ export default function Projects() {
           preview: "https://chartap.vercel.app/docs",
         },
         {
-          title: "DevPortfolio",
-          description: "A personal portfolio website showcasing my projects and skills.",
+          title: "DOCKER",
+          description: "Docker is a platform for containerizing applications for efficient deployment.",
           link: "https://documate-git-master-themageshs-projects.vercel.app/",
           preview: "https://documate-git-master-themageshs-projects.vercel.app/",
         },
@@ -33,7 +36,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="p-8 text-center">
+    <section id="projects" className={`p-8 text-center ${jost.className}`}>
       <motion.h2
         className="text-3xl font-bold text-white"
         initial={{ opacity: 0, y: -20 }}
@@ -42,7 +45,8 @@ export default function Projects() {
       >
         Projects
       </motion.h2>
-      <b className="text-[#ff64ab]">MY</b><span className="font-[Caveat] font-bold text-[#ffffff] text-2xl"> Cases</span>
+      <b className="text-[#ff64ab]">MY</b>
+      <span className="font-[Caveat] font-bold text-[#ffffff] text-2xl"> Cases</span>
 
       <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {loading

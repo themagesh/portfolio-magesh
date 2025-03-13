@@ -2,6 +2,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { Jost } from "next/font/google";
+
+const jost = Jost({ subsets: ["latin"], weight: ["400", "700"] });
 
 const skills = [
   { category: "Programming Languages", items: ["Python", "JavaScript"] },
@@ -17,7 +20,7 @@ const skills = [
 
 export default function SkillsSection() {
   return (
-    <section className="bg-gray-900 text-white py-16" id="skills-section">
+    <section className={`bg-gray-900 text-white py-16 ${jost.className}`} id="skills-section">
       {/* Heading */}
       <div className="text-center">
         <h2 className="text-4xl font-bold text-white">Professional Skills</h2>

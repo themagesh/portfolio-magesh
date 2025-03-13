@@ -7,13 +7,16 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { Jost } from "next/font/google";
+
+const jost = Jost({ subsets: ["latin"], weight: ["400", "700"] });
 
 const services = [
   { title: "Python Development", description: "Expert in building scalable and efficient Python applications tailored to your business needs." },
   { title: "Web Development", description: "Crafting high-performance, SEO-optimized websites with modern web technologies." },
   { title: "WordPress Development", description: "Professional WordPress solutions, from custom themes to full-scale website development." },
   { title: "API Development & Integration", description: "Building and integrating RESTful and PostgreSQL APIs to power seamless applications." },
-  { title: "Django Development", description: "Developing robust and scalable web applications using Django and Django REST Framework." },
+  { title: "Django Development", description: "Developing robust and scalable web applications using Django and Django REST Framework." },  
   { title: "FastAPI Development", description: "Creating high-performance APIs with FastAPI for modern web and mobile applications." },
   { title: "Ecommerce Development", description: "Building feature-rich online stores that drive conversions and enhance user experience." },
   { title: "Cloud Solutions", description: "Offering cloud-based solutions with AWS scalable applications." },
@@ -23,12 +26,12 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="relative  text-white py-16" id="services-section">
+    <section className={`relative text-white py-16 ${jost.className}`} id="services-section">
       <div className="text-center">
         <h2 className="text-4xl font-bold text-white">What I Do</h2>
         <p className="text-xl text-white">
           <span className="text-[#ff64ab] font-bold">MY</span> 
-          <span className="font-[Caveat] font-bold text-[#ffffff] text-2xl"> Services</span>
+          <span className="font-[Caveat] text-[#ffffff] text-2xl"> Services</span>
         </p>
       </div>
 

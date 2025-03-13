@@ -1,11 +1,13 @@
 import Link from "next/link";
-import { jost, caveat } from './Fonts'; 
+import { Jost } from "next/font/google";
+
+const jost = Jost({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function Footer() {
   const currentYear = new Date().getFullYear(); // Get current year
 
   return (
-    <footer className=" text-white py-6">
+    <footer className={`text-white py-6 ${jost.className}`}>
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           
@@ -25,6 +27,7 @@ export default function Footer() {
               &copy; {currentYear} <strong className="text-[#ff64ab]">Magesh</strong> <strong className="text-[#ffffff]">Kumar</strong>. All rights reserved.
             </p>
           </div>
+          
           {/* Developer Credit */}
           <div className="text-center md:text-right">
             <p>

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { jost, caveat } from './Fonts'; 
 
 export default function Header({ title, description }) {
   return (
