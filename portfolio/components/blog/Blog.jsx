@@ -10,7 +10,7 @@ const BlogSection = () => {
       title: "FastAPI: Full Course Basics",
       date: "18 January 2025",
       href: "/fastapi/2025/01/18/prometheus/",
-      imgSrc: "/assets/img/blog/prometheus-grafana.png",
+      imgSrc: "/assets/img/blog/fastapi.svg",  // ✅ Corrected path
       description: "FastAPI is a modern, high-performance web framework for building APIs with Python 3.7+ based on standard Python type hints...",
     },
   ];
@@ -21,7 +21,9 @@ const BlogSection = () => {
         {/* Heading */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold">Latest Blog</h2>
-          <p className="text-lg text-[#ff64ab] font-bold">MY <span className="font-[Caveat] font-bold text-[#ffffff] text-2xl"> Articles and Advice</span></p>
+          <p className="text-lg text-[#ff64ab] font-bold">
+            MY <span className="font-[Caveat] font-bold text-[#ffffff] text-2xl"> Articles and Advice</span>
+          </p>
         </div>
 
         {/* Blog Posts */}
@@ -32,8 +34,8 @@ const BlogSection = () => {
                 <Image
                   src={post.imgSrc}
                   alt={post.title}
-                  width={600}
-                  height={400}
+                  width={400}
+                  height={200}
                   className="w-full h-60 object-cover hover:opacity-80 transition"
                 />
               </Link>

@@ -12,6 +12,7 @@ export default function ContactSection() {
     message: "",
   });
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [charCount, setCharCount] = useState(0);
   const formRef = useRef(null);
@@ -24,60 +25,70 @@ export default function ContactSection() {
   ];
 
   useEffect(() => {
-    if (success) {
-      const timer = setTimeout(() => setSuccess(false), 3000);
+    if (success || error) {
+      const timer = setTimeout(() => {
+        setSuccess(false);
+        setError(null);
+      }, 5000);
       return () => clearTimeout(timer);
     }
-  }, [success]);
+  }, [success, error]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (name === "message") setCharCount(value.length);
+  };
 
-    if (name === "message") {
-      setCharCount(value.length);
+  const validateForm = () => {
+    if (!formData.name.trim() || !formData.email.trim() || 
+        !formData.subject.trim() || !formData.message.trim()) {
+      setError("Please fill in all fields.");
+      return false;
     }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setError("Please enter a valid email address.");
+      return false;
+    }
+    return true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setError(null);
 
     if (!validateForm()) {
       setLoading(false);
       return;
     }
 
-    const payload = { ...formData, adminEmail: "themagesh.v@gmail.com" };
+    try {
+      const response = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    const res = await fetch("https://formspree.io/f/myzgzolg", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+      const data = await response.json();
 
-    if (res.ok) {
-      setSuccess(true);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setCharCount(0);
+      if (response.ok) {
+        setSuccess(true);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setCharCount(0);
+      } else {
+        setError(data.message || "Failed to send email. Please try again.");
+      }
+    } catch (error) {
+      setError("Network error occurred. Please try again later.");
+      console.error("Error:", error);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
-  };
-
-  const validateForm = () => {
-    if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
-      alert("Please fill in all fields.");
-      return false;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      alert("Please enter a valid email.");
-      return false;
-    }
-
-    return true;
   };
 
   return (
@@ -89,7 +100,6 @@ export default function ContactSection() {
         </p>
 
         <div className="grid md:grid-cols-2 gap-10 mt-8">
-          {/* Left Side - Contact Info */}
           <div className="text-left space-y-6">
             {contactDetails.map(({ icon: Icon, label, value }, index) => (
               <div key={index}>
@@ -104,27 +114,51 @@ export default function ContactSection() {
             ))}
           </div>
 
-          {/* Right Side - Contact Form */}
-          <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 text-left p-6 rounded-2xl shadow-lg">
-            <input type="text" name="name" placeholder="Your Full Name *" required
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 text-left p-6 rounded-2xl shadow-lg bg-gray-800">
+            <input 
+              type="text" 
+              name="name" 
+              placeholder="Your Full Name *" 
+              required
               className="w-full p-3 bg-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#ff64ab]"
-              value={formData.name} onChange={handleChange} />
+              value={formData.name} 
+              onChange={handleChange} 
+            />
 
-            <input type="email" name="email" placeholder="Your Email Address *" required
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="Your Email Address *" 
+              required
               className="w-full p-3 bg-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#ff64ab]"
-              value={formData.email} onChange={handleChange} />
+              value={formData.email} 
+              onChange={handleChange} 
+            />
 
-            <input type="text" name="subject" placeholder="Your Subject *" required
+            <input 
+              type="text" 
+              name="subject" 
+              placeholder="Your Subject *" 
+              required
               className="w-full p-3 bg-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#ff64ab]"
-              value={formData.subject} onChange={handleChange} />
+              value={formData.subject} 
+              onChange={handleChange} 
+            />
 
-            <textarea name="message" placeholder="Your Message *" required
+            <textarea 
+              name="message" 
+              placeholder="Your Message *" 
+              required
               className="w-full p-3 bg-gray-700 rounded-xl text-white h-32 focus:outline-none focus:ring-2 focus:ring-[#ff64ab]"
-              value={formData.message} onChange={handleChange}></textarea>
+              value={formData.message} 
+              onChange={handleChange}
+            ></textarea>
 
-            <button type="submit"
+            <button 
+              type="submit"
               className="w-full bg-[#ff64ab] py-3 rounded-xl font-bold transition hover:bg-[#ff458c] disabled:opacity-50"
-              disabled={loading}>
+              disabled={loading}
+            >
               {loading ? "Sending..." : "Send Message"}
             </button>
           </form>
@@ -132,7 +166,12 @@ export default function ContactSection() {
 
         {success && (
           <p className="text-green-400 mt-4 transition-opacity duration-500 ease-in-out opacity-100">
-            Thanks, your message is sent successfully!
+            Message sent successfully! I'll get back to you soon.
+          </p>
+        )}
+        {error && (
+          <p className="text-red-400 mt-4 transition-opacity duration-500 ease-in-out opacity-100">
+            {error}
           </p>
         )}
       </div>

@@ -6,7 +6,7 @@ import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import SkillsSection from '@/components/Skills';
 import Resume from '@/components/Resume';
-import BlogSection from '@/components/Blog';
+import BlogSection from '@/components/blog/Blog';
 import Footer from '@/components/Footer';
 
 
