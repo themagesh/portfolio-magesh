@@ -64,7 +64,7 @@ export default function HeroSection() {
           <div className="flex items-center gap-0 mt-5">
   {/* Download CV Button */}
   <Link
-    href="https://drive.google.com/file/d/1ezAmyDDVlr0A2I-R5L-4bPOU5pY4y6Cu/view"
+    href="https://drive.google.com/file/d/13QapSlf4PLOgqmCN0qqsNQZ1XwSIgI_P/view?usp=sharing"
     target="_blank"
     className="bg-transparent text-white px-6 py-1 rounded-xl font-semibold shadow-md 
                border-2 border-white hover:bg-[#ff64ab] hover:text-white"
