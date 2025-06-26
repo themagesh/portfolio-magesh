@@ -64,7 +64,7 @@ export default function HeroSection() {
           <div className="flex items-center gap-0 mt-5">
   {/* Download CV Button */}
   <Link
-    href="https://drive.google.com/file/d/13QapSlf4PLOgqmCN0qqsNQZ1XwSIgI_P/view?usp=sharing"
+    href="https://drive.google.com/file/d/1ok8SXiiNvLRw_QrfmOWV5QgOTCZWr2ez/view?usp=sharing"
     target="_blank"
     className="bg-transparent text-white px-6 py-1 rounded-xl font-semibold shadow-md 
                border-2 border-white hover:bg-[#ff64ab] hover:text-white"
@@ -86,16 +86,16 @@ export default function HeroSection() {
 
         <div className="relative mt-10 md:mt-5">
           {/* <Image
-            // src="/assets/img/profile2.jpg"
-            // alt="MageshKUMAR Profile"
+            src="/assets/img/magesh.png"
+            alt="MageshKUMAR Profile"
             width={300}
             height={300}
             className="rounded-full shadow-lg"
           /> */}
           <div className="relative mt-10 md:mt-5">
-  <div className="w-[300px] h-[300px] bg-gray-700 rounded-full shadow-lg flex items-center justify-center text-white text-2xl font-bold">
+          <div className="w-[300px] h-[300px] bg-gray-700 rounded-full shadow-lg flex items-center justify-center text-white text-2xl font-bold">
     
-  </div>
+      </div>
 </div>
 
           <div className="absolute -top-5 -left-5 bg-[#ff64ab] w-12 h-12 rounded-full"></div>
