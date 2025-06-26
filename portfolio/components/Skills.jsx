@@ -7,15 +7,12 @@ import { Jost } from "next/font/google";
 const jost = Jost({ subsets: ["latin"], weight: ["400", "700"] });
 
 const skills = [
-  { category: "Programming Languages", items: ["Python", "JavaScript"] },
-  { category: "Web Development", items: ["HTML", "CSS"] },
-  { category: "Databases", items: ["PostgreSQL", "MongoDB"] },
-  { category: "Cloud Services", items: ["AWS", "Azure"] },
-  { category: "CI/CD", items: ["Docker", "Kubernetes", "GitLab"] },
-  { category: "Scripting & Automation", items: ["Shell/Bash", "Python"] },
-  { category: "Operating Systems", items: ["Linux (Debian & RedHat Based)", "Windows Server"] },
-  { category: "Python Libraries", items: ["FastAPI", "Django", "Requests"] },
-  { category: "CSS Frameworks", items: ["Tailwind CSS"] },
+  { category: "Front-End", items: ["React.js", "JavaScript", "HTML", "CSS", "Tailwind CSS"] },
+  { category: "Back-End", items: ["Python", "FastAPI", "Django", "REST API", "JWT Auth"] },
+  { category: "Databases", items: ["MongoDB", "PostgreSQL", "SQL", "Redis"] },
+  { category: "Developer Tools", items: ["VS Code", "PyCharm", "GitHub", "WordPress", "CPanel & WHM", "Vercel", "Linux"] },
+  { category: "Cloud Deployment", items: ["AWS EC2", "Vercel"] },
+  { category: "Design Tools", items: ["Adobe Design", "Canva"] },
 ];
 
 export default function SkillsSection() {

@@ -38,11 +38,11 @@ export default function HeroSection() {
 
           {/* ✅ Fixed Caveat class name usage */}
           <p className={`text-xl mt-2 ${caveat.className}`}>
-            <strong className={`${jost.className}`}>A</strong> <strong>Python Developer</strong>
+            <strong className={`${jost.className}`}>A</strong> <strong>Full Stack Developer</strong>
             </p>
 
           <p className="mt-4 text-gray-300">
-          Passionate Python Developer with a strong focus on Linux and cloud technologies. I have hands-on experience in live environments and a deep technical knowledge of backend development and real-time systems.
+          Passionate full stack developer with a strong focus on Linux and cloud technologies. I have hands-on experience in live environments and a deep technical knowledge of backend development and real-time systems.
           </p>
           <div className="flex gap-4 mt-6">
             <Link

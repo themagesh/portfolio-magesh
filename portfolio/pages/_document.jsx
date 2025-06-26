@@ -7,7 +7,6 @@ export default class MyDocument extends Component {
       <Html lang="en">
         <Head>
           <meta name="description" content="A showcase of my work and skills." />
-          <title>MageshKumar | Portfolio</title>
           {/* Add custom meta tags, fonts, etc. here */}
           <link
           rel="stylesheet"

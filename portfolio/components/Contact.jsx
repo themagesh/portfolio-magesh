@@ -20,7 +20,7 @@ export default function ContactSection() {
   const contactDetails = [
     { icon: MapPin, label: "Address", value: "Dharmapuri, Tamil Nadu, India" },
     { icon: User, label: "Freelance", value: "Available Right Now" },
-    { icon: Mail, label: "Email", value: "themagesh.v@gmail.com" },
+    { icon: Mail, label: "Email", value: "admin@themagesh.in" },
     { icon: Phone, label: "Phone", value: "+91 6381 - 114 - 501" },
   ];
 

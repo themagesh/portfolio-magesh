@@ -13,8 +13,7 @@ import Footer from '@/components/Footer';
 export default function Home() {
   return (
     <div className="bg-gray-900 text-white">
-      {/* <Header title="MageshKumar| Portfolio" description="A showcase of my work and skills." /> */}
-      <Header/>
+      <Header title="MageshKumar | Portfolio" description="A showcase of my work and skills." />
       <Hero />
       <About />
       <Navbar/>
@@ -23,8 +22,6 @@ export default function Home() {
       <Resume/>
       <BlogSection/>
       <Contact />
-      {/* <Portfolio/> */}
-      
       <Footer/>
     </div>
     
